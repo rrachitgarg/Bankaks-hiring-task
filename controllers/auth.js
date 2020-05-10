@@ -69,8 +69,8 @@ module.exports = {
             user = await db.User.findOne({
                 where: { mobile: decoded.mobile }
             });
-            // await util.validateApi(req.body.mobile);
-            contact = await db.Contact.findOrCreate({where: {name: req.body.name,mobile: req.body.mobile}});
+            await util.validateApi(req.body.mobile);
+            contact = await db.Contact.findOrCreate({where: {name: req.body.name,mobile: req.body.mobile.slice(2)}});
             user.addContact(contact[0]);
             res.status(200).send("Contact added successfully");
         }

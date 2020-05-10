@@ -20,9 +20,12 @@ module.exports = {
     },
     validateApi: (mobile)=>{
         return new Promise((resolve, reject)=>{
+            // var params = {
+            //     countryCode: '+91'
+            //   };
             messagebird.lookup.read(mobile,(err,res)=>{
                 if(err){
-                    reject(err.errors[0].description);
+                    reject(new Error(err.errors[0].description));
                 }
                 resolve(true);
             });
