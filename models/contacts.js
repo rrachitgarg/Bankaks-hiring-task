@@ -13,6 +13,7 @@ module.exports = (sequelize, type) => {
         },
         mobile:{
             type: type.STRING(10),
+            unique: true,
             allowNull: false
         },
     });
