@@ -8,10 +8,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(router);
 
-app.use('*',(req,res)=>{
+app.use('*', (req, res) => {
     res.status(404).send("Invalid url");
 });
 
-app.listen(process.env.PORT,()=>{
-    console.log("Server is running...")
+app.listen(process.env.PORT, () => {
+    console.log("Server is running successfully...")
 });
